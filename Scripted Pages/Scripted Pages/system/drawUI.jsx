@@ -81,7 +81,7 @@ var wordDocumentPathStatic,
 
 // Experimental
 
-var experimental_backgroundColour, experimental_GradientColour, experimental_ParagraphIndents, experimental_BigCover;
+var experimental_backgroundColour, experimental_GradientColour, experimental_ParagraphIndents, experimental_BigCover, experimental_random;
 
 
 
@@ -863,7 +863,15 @@ function drawUI() {
     var freeStyleTab = tabPanel.add('tab', undefined, "Experimental");
     freeStyleTab.margins = [10, 15, 0, 0];
 
+    // enable random selection of experimental features
+    var random_generation_group = freeStyleTab.add("group");
+    random_generation_group.alignment = 'left';
+    random_generation_group.margins = [10, 0, 0, 10];
+    experimental_random = random_generation_group.add("checkbox", undefined, "Surprise me");
+    var white_space_s = random_generation_group.add("statictext", undefined, "");
+    white_space_s.preferredSize.height = 3;
 
+    // TODO: block the interface when "surprise me" is selected
     var chooseFreePanel = freeStyleTab.add('panel', undefined, 'Choose experimental function to use ');
     chooseFreePanel.alignment = ['fill', 'top'];
     chooseFreePanel.alignChildren = "left";
@@ -871,11 +879,14 @@ function drawUI() {
     var white_space = chooseFreePanel.add("statictext", undefined, "");
     white_space.preferredSize.height = 3;
 
+
     // ———————— Functions 
     experimental_backgroundColour = chooseFreePanel.add("checkbox", undefined, "Two Colours Background");
     experimental_GradientColour = chooseFreePanel.add("checkbox", undefined, "Create Gradients");
     experimental_ParagraphIndents = chooseFreePanel.add("checkbox", undefined, "Random Paragraph Indents");
     experimental_BigCover = chooseFreePanel.add("checkbox", undefined, "Fit Title to Cover");
+
+
 
     //update inicial value according to JSON
     experimental_GradientColour.value = create_gradients;
@@ -885,8 +896,6 @@ function drawUI() {
     experimental_ParagraphIndents.value = randomTextIndent;
 
     experimental_BigCover.value = createBigCover;
-
-
 
     var separatorTab = tabPanel.add('tab', undefined, "");
     separatorTab.enabled = false;

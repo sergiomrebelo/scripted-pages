@@ -553,18 +553,26 @@ importImagesButton.onClick = function () {
 
 function run_experimental_functions() {
 
-    if (experimental_backgroundColour.value) {
+    // FIXME
+    if (experimental_random.value === true) {
+        var run_exp_bk = Math.random();
+        var run_exp_gc = Math.random();
+        var run_exp_pi = Math.random();
+        var run_exp_bc = Math.random();
+    }
+
+    if (experimental_backgroundColour.value || run_exp_bk >= 0.75) {
         createShapes();
     }
-    if (experimental_GradientColour.value) {
+    if (experimental_GradientColour.value || run_exp_gc >= 0.75) {
         create_gradientShapes();
     }
 
-    if (experimental_ParagraphIndents.value) {
+    if (experimental_ParagraphIndents.value || run_exp_pi >= 0.75) {
         randomTextIndent_andColor();
     }
 
-    if (experimental_BigCover.value) {
+    if (experimental_BigCover.value || run_exp_bk >= 0.75) {
         putTextAsBigAsPossible();
     }
 

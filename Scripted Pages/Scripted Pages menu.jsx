@@ -20,7 +20,7 @@ myFolder = myFolder.parent.parent;
 // };
 
 var menuItem1Handler = function ( /*onInvoke*/) {
-    app.doScript(File('/Applications/Adobe%20InDesign%20CC%202019/Scripts/Scripts%20Panel/Scripted%20Pages/runSystem.jsx'));
+    app.doScript(File('/Applications/Adobe%20InDesign%20CC%202022/Scripts/Scripts%20Panel/Scripted%20Pages/runSystem.jsx'));
 };
 
 // var menuItem2Handler = function ( /*onInvoke*/) {
